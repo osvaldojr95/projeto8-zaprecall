@@ -1,24 +1,27 @@
 import ReactDom from "react-dom";
 import React from "react";
-import Tela1 from "./components/Tela1";
-import Tela2 from "./components/Tela2";
+import "./css/reset.css"
+import "./css/style.css"
+import "./css/media.css"
+import Screen1 from "./components/Screen1";
+import Screen2 from "./components/Screen2";
 
 function App() {
-    const [tela, setTela] = React.useState("tela1");
+    const [screen, setScreen] = React.useState("screen2");
 
-    function trocaTela(troca) {
-        setTela(troca);
+    function switchScreen(sw) {
+        setScreen(sw);
     }
 
     return (
         <>
-            <Tela1
-                className={["tela1", (tela === "tela1" ? "" : "hidden")]}
-                trocaTela={trocaTela}
-            />
-            <Tela2
-                className={["tela2", (tela === "tela2" ? "" : "hidden")]}
-                trocaTela={trocaTela}
+            <Screen1
+                className={[(screen === "screen1" ? "" : "hidden")]}
+                switchScreen={switchScreen}
+                />
+            <Screen2
+                className={[(screen === "screen2" ? "" : "hidden")]}
+                switchScreen={switchScreen}
             />
         </>
     )
