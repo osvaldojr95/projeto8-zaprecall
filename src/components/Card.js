@@ -3,27 +3,32 @@ import ImgArrow from "./../resources/setinha.png"
 
 export default function Card(props) {
 
-    const { name, question, anwser } = props;
+    const { name, question, anwser, block, setBlock, addAnwserList } = props;
     const [state, setState] = React.useState("open");
-    const [anwserType] = React.useState("");
-    let classes = ["card", state, anwserType];
+    const [anwserType, setAnwserType] = React.useState("");
+    let css = ["card", state, anwserType];
     let content;
+
+    function acerto(anwser) {
+        setAnwserType(anwser);
+        setState("closed");
+    }
 
     switch (state) {
         case "open":
             content = (
                 <>
                     <h2>{name}</h2>
-                    <ion-icon name="checkmark-circle"></ion-icon>
                 </>
             )
             break;
 
         case "question":
+            setBlock(true);
             content = (
                 <>
                     <span>{question}</span>
-                    <img src={ImgArrow} alt="Seta para virar o card" />
+                    <img src={ImgArrow} alt="Seta para virar o card" onClick={() => setState("anwser")} />
                 </>
             )
             break;
@@ -33,15 +38,25 @@ export default function Card(props) {
                 <>
                     <span>{anwser}</span>
                     <div className="botoes">
-                        <button className="red" onClick={() => { }}>Não lembrei</button>
-                        <button className="yellow"><p>Quase não</p><p>lembrei</p></button>
-                        <button className="green">Zap!</button>
+                        <button className="red-back" onClick={() => {
+                            acerto("red");
+                            addAnwserList("red");
+                        }}>Não lembrei</button>
+                        <button className="yellow-back" onClick={() => {
+                            acerto("yellow");
+                            addAnwserList("yellow");
+                        }}><p>Quase não</p><p>lembrei</p></button>
+                        <button className="green-back" onClick={() => {
+                            acerto("green");
+                            addAnwserList("green");
+                        }}>Zap!</button>
                     </div>
                 </>
             )
             break;
 
         case "closed":
+            setBlock(false);
             content = (
                 <>
                     <h2><del>{name}</del></h2>
@@ -55,7 +70,7 @@ export default function Card(props) {
     }
 
     return (
-        <div className={classes.join(' ')} onClick={()=> state==="open" ? setState("question") : ""}>
+        <div className={css.join(' ')} onClick={() => (state === "open" && block === false) ? setState("question") : ""}>
             {content}
         </div>
     )

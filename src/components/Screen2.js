@@ -1,18 +1,27 @@
+import Header from "./Header";
 import Container from "./Container";
-import ImpLogo from "./../resources/logo-pequeno.png"
+import Footer from "./Footer";
+import React from "react";
 
 export default function Screen2(props) {
 
     let { className } = props;
-    className = ["screen2", ...className];
+    let css = ["screen2", ...className];
+    const [anwserList,setAnwserList] = React.useState([false,[],8]);
+
+    function attAnwserList(anwser,status){
+        anwserList[1].push(anwser);
+        anwserList[0] = status;
+        setAnwserList([...anwserList]);
+    }
 
     return (
-        <div className={className.join(' ')} >
-            <div className="top">
-                <img src={ImpLogo} alt="Logo" />
-                <h1>ZapRecall</h1>
+        <>
+            <Header />
+            <div className={css.join(' ')} >
+                <Container anwserList={anwserList} attAnwserList={attAnwserList}/>
             </div>
-            <Container />
-        </div>
+            <Footer anwserList={anwserList}/>
+        </>
     )
 }

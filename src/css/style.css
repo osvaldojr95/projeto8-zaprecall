@@ -4,16 +4,22 @@
 
 .red {
     color: #FF3030;
+}
+.red-back {
     background-color: #FF3030;
 }
 
 .green {
     color: #2FBE34;
+}
+.green-back {
     background-color: #2FBE34;
 }
 
 .yellow {
     color: #FF922E;
+}
+.yellow-back {
     background-color: #FF922E;
 }
 
@@ -32,6 +38,10 @@ body {
     width: 100%;
     height: 100%;
     background-color: #FB6B6B;
+}
+
+ion-icon {
+    font-size: 20px;
 }
 
 .screen1 {
@@ -68,6 +78,7 @@ body {
 }
 
 .screen2 {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -78,24 +89,53 @@ body {
     flex-shrink: 0;
 }
 
-.top {
+header {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100px;
+    height: 86px;
 }
 
-.top h1 {
+header h1 {
     font-family: 'Righteous', 'cursive';
     font-size: 20px;
     color: #FFFFFF;
 }
 
-.top img {
+header img {
     width: 32px;
     margin-right: 10px;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #FFFFFF;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+    z-index: 2;
+    font-family: 'Recursive', sans-serif;
+}
+
+footer h3 {
+    font-size: 12px;
+}
+
+footer .icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3px;
 }
 
 .container {
@@ -107,6 +147,7 @@ body {
     height: 100%;
     flex-grow: 0;
     flex-shrink: 0;
+    margin-bottom: 60px;
 }
 
 .card {
@@ -116,10 +157,6 @@ body {
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
     padding: 10px 10px;
     font-size: 12px;
-}
-
-.card ion-icon {
-    font-size: 20px;
 }
 
 .card h2 {
@@ -188,5 +225,5 @@ body {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
