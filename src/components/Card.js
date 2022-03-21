@@ -19,6 +19,7 @@ export default function Card(props) {
             content = (
                 <>
                     <h2>{name}</h2>
+                    <ion-icon onClick={() => (state === "open" && block === false) ? setState("question") : ""} name="play-outline"></ion-icon>
                 </>
             )
             break;
@@ -70,9 +71,8 @@ export default function Card(props) {
     }
 
     return (
-        <div className={css.join(' ')} onClick={() => (state === "open" && block === false) ? setState("question") : ""}>
+        <div className={css.join(' ')}>
             {content}
         </div>
     )
-
 }

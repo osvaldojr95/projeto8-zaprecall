@@ -7,11 +7,11 @@ export default function Screen2(props) {
 
     let { className } = props;
     let css = ["screen2", ...className];
-    const [anwserList,setAnwserList] = React.useState([false,[],8]);
+    const [anwserList,setAnwserList] = React.useState([[],false,8]);
 
     function attAnwserList(anwser,status){
-        anwserList[1].push(anwser);
-        anwserList[0] = status;
+        anwserList[0].push(anwser);
+        anwserList[1] = status;
         setAnwserList([...anwserList]);
     }
 
