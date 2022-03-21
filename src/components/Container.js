@@ -12,7 +12,7 @@ export default function Container(props) {
     }
 
     return (
-        <div className="container">
+        <div className={"container" + (anwserList[1] === true ? " finish" : "")}>
             {
                 listCards.map((card) => <Card key={listCards.indexOf(card)} name={"Pergunta " + (listCards.indexOf(card) + 1)} question={card.question} anwser={card.anwser} block={block} setBlock={setBlock} addAnwserList={addAnwserList} />)
             }
