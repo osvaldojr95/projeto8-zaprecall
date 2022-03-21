@@ -20,7 +20,7 @@ export default function Screen2(props) {
             <div className={css.join(' ')} >
                 <Header />
                 <Container anwserList={anwserList} attAnwserList={attAnwserList} />
-                <Footer hidden={css} anwserList={anwserList} />
+                <Footer anwserList={anwserList} />
             </div>
         </>
     )
