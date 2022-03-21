@@ -3,7 +3,7 @@ import Putz from "./../resources/sad.png"
 
 export default function Footer(props) {
 
-    const { anwserList } = props;
+    const { anwserList, hidden } = props;
     let information;
 
     if (anwserList[1] === true) {

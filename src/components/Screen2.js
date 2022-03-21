@@ -7,9 +7,9 @@ export default function Screen2(props) {
 
     let { className } = props;
     let css = ["screen2", ...className];
-    const [anwserList,setAnwserList] = React.useState([[],false,8]);
+    const [anwserList, setAnwserList] = React.useState([[], false, 8]);
 
-    function attAnwserList(anwser,status){
+    function attAnwserList(anwser, status) {
         anwserList[0].push(anwser);
         anwserList[1] = status;
         setAnwserList([...anwserList]);
@@ -17,11 +17,11 @@ export default function Screen2(props) {
 
     return (
         <>
-            <Header />
             <div className={css.join(' ')} >
-                <Container anwserList={anwserList} attAnwserList={attAnwserList}/>
+                <Header />
+                <Container anwserList={anwserList} attAnwserList={attAnwserList} />
+                <Footer hidden={css} anwserList={anwserList} />
             </div>
-            <Footer anwserList={anwserList}/>
         </>
     )
 }

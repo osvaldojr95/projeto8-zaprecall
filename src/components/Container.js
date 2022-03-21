@@ -14,7 +14,7 @@ export default function Container(props) {
     return (
         <div className="container">
             {
-                listCards.map((card) => <Card name={"Pergunta " + (listCards.indexOf(card) + 1)} question={card.question} anwser={card.anwser} block={block} setBlock={setBlock} addAnwserList={addAnwserList} />)
+                listCards.map((card) => <Card key={listCards.indexOf(card)} name={"Pergunta " + (listCards.indexOf(card) + 1)} question={card.question} anwser={card.anwser} block={block} setBlock={setBlock} addAnwserList={addAnwserList} />)
             }
         </div>
     )

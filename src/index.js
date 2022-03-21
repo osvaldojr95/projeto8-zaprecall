@@ -7,7 +7,7 @@ import Screen1 from "./components/Screen1";
 import Screen2 from "./components/Screen2";
 
 function App() {
-    const [screen, setScreen] = React.useState("screen2");
+    const [screen, setScreen] = React.useState("screen1");
 
     function switchScreen(sw) {
         setScreen(sw);
